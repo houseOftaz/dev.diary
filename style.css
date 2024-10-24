@@ -10,6 +10,8 @@ body {
 }
 
 table {
+  table-layout: fixed;
+  width: 100%;
   border-collapse: collapse;
   border: 1px solid rgb(0, 128, 0);
 }
@@ -19,10 +21,6 @@ td {
   height: 30px;
   border: 1px solid rgb(0, 128, 0);
   padding: 4px 5px;
-}
-
-.null {
-  color: red;
 }
 
 ul {
@@ -35,4 +33,12 @@ article {
   padding: 10px;
   margin: 10px;
   border: 1px solid rgb(0, 128, 0);
+}
+
+.null {
+  color: red;
+}
+
+.new {
+  color: rgb(154, 205, 50);
 }
