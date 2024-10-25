@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>dev.diary | Oftaz</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js"></script>
   </head>
   <body>
     <header>
       <h1>Welcome to dev.diary by Oftaz</h1>
       <p>I'm Anastasia, a human who loves to code.</p>
-      <nav>
-        <a href="https://github.com/houseOftaz/dev.diary">github</a>
-      </nav>
+      <p>Staying organized and keeping track of my progress.</p>
+      <p>체계적으로 정리하고 진행 상황 모니터링하기</p>
     </header>
-    <main>
+    <main id="diary">
       <h2>Welcome to dev.diary</h2>
       <p>
         This is a place where I write down my thoughts and ideas. Also keep an
@@ -23,15 +23,73 @@
       <p>
         Like many people I'm so hard with me. So I need to write my successes.
       </p>
+
+      <button id="addEntryBtn">Add today's entry</button>
+      <template id="dayTemplate">
+        <article>
+          <h3 class="date-title">Date</h3>
+          <p>
+            <input
+              type="text"
+              class="day-description"
+              placeholder="Description"
+            />
+          </p>
+          <table>
+            <caption>
+              What I have done today
+            </caption>
+            <thead>
+              <tr>
+                <th>W3Schools</th>
+                <th>Learning</th>
+                <th>Studi</th>
+                <th>Melvynx</th>
+                <th>Code</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" class="input-w3schools" /></td>
+                <td><input type="text" class="input-learning" /></td>
+                <td><input type="text" class="input-studi" /></td>
+                <td><input type="text" class="input-melvynx" /></td>
+                <td><input type="text" class="input-code" /></td>
+                <td>
+                  <textarea class="textarea-notes"></textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="save-entry-btn">Add on board</button>
+          <h3>English</h3>
+          <ul>
+            <li>Example word</li>
+          </ul>
+        </article>
+      </template>
+    </main>
+    <footer>
+      <p>Made with ❤️ by <a href="https://github.com/houseOftaz">Oftaz</a></p>
+    </footer>
+  </body>
+</html>
+
+<!--
       <article>
-        <h3>2024, October twenty-tree</h3>
+        <h3>2024, October twenty-three</h3>
         <p>
           Tables are so hard to write. So I'll code one everyday to resume my
           learned things. Also I've learned a little more about how JS is
           interpreted by the browser. See
-          <a href="https://v8.dev/" target="_blank" rel="noopener noreferrer"
+          <a
+            href="https://v8.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resources"
             >V8 JavaScript engine</a
-          >
+          >.
         </p>
         <table>
           <caption>
@@ -76,7 +134,7 @@
       </article>
 
       <article>
-        <h3>2024, October twenty-four</h3>
+        <h3>2024, October twenty-fourth</h3>
         <p>
           I dreamed about code again! 10am30, I'm late on my schedule. Going to
           review JavaScript from W3Schools and Learning.
@@ -104,10 +162,11 @@
                   and find new very interesting resources</span
                 >.
               </td>
-              <td>Not yet</td>
+              <td class="null">NULL</td>
               <td class="null">NULL</td>
               <td>
                 See learn_javaScript/, dev.diary/ and going to do a to-do list
+                with <span class="resources">Grafikart <3</span>
               </td>
               <td>
                 Why didn't I do ths sooner ? I'm so excited to start a new
@@ -122,7 +181,12 @@
           <li>input | saisie</li>
           <li>output | sortie/affichage</li>
         </ul>
-      </article>
-    </main>
-  </body>
-</html>
+
+        <h3>2024, October twenty-fifth</h3>
+        <p>
+          Tables aren't so terrific to write. I'm going to add JavaScript to
+          avoid a too long HTML code.
+        </p>
+
+
+-->
