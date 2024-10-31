@@ -1,36 +1,52 @@
-document.getElementById("addEntryBtn").addEventListener("click", () => {
-  const template = document.getElementById("dayTemplate");
-  const diary = document.getElementById("diary");
+import { initDb, addEntry, loadEntries } from "./createDb.js";
 
-  // clone template and append to diary
-  const newEntry = template.content.cloneNode(true);
+document.addEventListener("DOMContentLoaded", () => {
+  initDb();
 
-  // define current date
-  const today = new Date().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-  newEntry.querySelector(".date-title").textContent = today;
+  document.getElementById("add-entry-btn").addEventListener("click", () => {
+    const diary = document.getElementById("diary");
+    const template = document
+      .getElementById("day-template")
+      .content.cloneNode(true);
+    diary.appendChild(template);
 
-  // add event to save entry
-  newEntry.querySelector(".save-entry-btn").addEventListener("click", () => {
-    // get inputs data
+    const today = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    const lastEntry = diary.lastElementChild;
+
     const entryData = {
       date: today,
-      description: newEntry.querySelector(".day-description").value,
-      w3schools: newEntry.querySelector(".input-w3schools").value,
-      learning: newEntry.querySelector(".input-learning").value,
-      studi: newEntry.querySelector(".input-studi").value,
-      melvynx: newEntry.querySelector(".input-melvynx").value,
-      code: newEntry.querySelector(".input-code").value,
-      notes: newEntry.querySelector(".textarea-notes").value,
+      description: lastEntry.querySelector(".day-description").value,
+      w3schools: lastEntry.querySelector(".input-w3schools").value,
+      learning: lastEntry.querySelector(".input-learning").value,
+      studi: lastEntry.querySelector(".input-studi").value,
+      melvynx: lastEntry.querySelector(".input-melvynx").value,
+      code: lastEntry.querySelector(".input-code").value,
+      notes: lastEntry.querySelector(".textarea-notes").value,
     };
 
-    localStorage.setItem(`entry-${today}`, JSON.stringify(entryData));
-
-    alert("Entry saved!");
+    addEntry(entryData).then(() => displayEntry(entryData));
   });
-
-  diary.appendChild(newEntry);
 });
+
+function displayEntry(entryData) {
+  const diary = document.getElementById("diary");
+
+  const entryElement = document.createElement("article");
+  entryElement.innerHTML = `
+    <h3 class="date-title">${entryData.date}</h3>
+    <p>${entryData.description}</p>
+    <table>
+      <tr><td>W3Schools</td><td>${entryData.w3schools}</td></tr>
+      <tr><td>Learning</td><td>${entryData.learning}</td></tr>
+      <tr><td>Studi</td><td>${entryData.studi}</td></tr>
+      <tr><td>Melvynx</td><td>${entryData.melvynx}</td></tr>
+      <tr><td>Code</td><td>${entryData.code}</td></tr>
+      <tr><td>Notes</td><td>${entryData.notes}</td></tr>
+    </table>
+    `;
+  diary.appendChild(entryElement);
+}
