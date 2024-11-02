@@ -16,8 +16,7 @@
       <p>Staying organized and keeping track of my progress.</p>
       <p>체계적으로 정리하고 진행 상황 모니터링하기</p>
     </header>
-    <button id="export-json-btn">Export entries to JSON</button>
-    <input type="file" id="import-json-btn" accept=".json" />
+
     <!--MAIN-->
     <main id="diary">
       <h2>Welcome to dev.diary</h2>
@@ -28,7 +27,6 @@
       <p>
         Like many people I'm so hard with me. So I need to write my successes.
       </p>
-      <button id="add-entry-btn">Add today's entry</button>
       <!--DAY TEMPLATE-->
       <template id="day-template">
         <article>
@@ -68,6 +66,8 @@
             </tbody>
           </table>
           <button class="save-entry-btn">Add on board</button>
+          <button id="export-json-btn">Export JSON</button>
+          <button id="import-json-btn">Import JSON</button>
           <h3>English</h3>
           <ul>
             <li>Example word</li>
